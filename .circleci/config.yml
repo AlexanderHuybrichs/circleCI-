@@ -40,8 +40,8 @@ jobs:
           at: /tmp/workspace
       - run : |
           TAG=0.1.$CIRCLE_PREVIOUS_BUILD_NUM
-          git clone https://github.com/AlexanderHuybrichs/ArgoCD /tmp/CircleCI-Webapp-CD
-          cd /tmp/CircleCI-Webapp-CD
+          git clone https://github.com/AlexanderHuybrichs/ArgoCD-example-app-CD /tmp/ArgoCD-example-app-CD
+          cd /tmp/ArgoCD-example-app-CD
           cp /tmp/workspace/deployment.yaml .
           sed -i 's/\(cicrleci-exampleapp\)\(.*\)/\1:'$TAG'/' ./deployment.yaml
           git config credential.helper 'cache --timeout=120'
@@ -50,7 +50,7 @@ jobs:
           git add .
           git commit -m "Update via CircleCI"
           # Push quietly to prevent showing the token in log
-          git push -q https://$GITHUB_PERSONAL_TOKEN@github.com/AlexanderHuybrichs/ArgoCD.git main
+          git push -q https://$GITHUB_PERSONAL_TOKEN@github.com/AlexanderHuybrichs/ArgoCD-example-app-CD.git main
 workflows:
   version: 2
   Test-Build-Publish:
