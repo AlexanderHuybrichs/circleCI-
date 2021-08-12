@@ -1,0 +1,6 @@
+FROM ubuntu:20.10
+RUN mkdir /app
+COPY exampleapp /app/
+WORKDIR /app
+CMD ["/app/exampleapp"]
+EXPOSE 80
