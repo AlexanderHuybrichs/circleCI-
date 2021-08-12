@@ -5,7 +5,7 @@ jobs:
       - image: aimvector/python:1.0.1
     steps:
       - checkout
-      - run: go test -v ./...
+#      - run: go test -v ./...
   Build:
     docker:
       - image: aimvector/python:1.0.1
